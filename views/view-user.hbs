@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">View User</li>
+    <li class="breadcrumb-item active" aria-current="page">View Student</li>
   </ol>
 </nav>
 
@@ -9,7 +9,7 @@
   {{#each rows}}
   <div class="row mb-5">
     <div class="col text-center">
-      <h3>{{this.first_name}} {{this.last_name}}</h3>
+      <h3>{{this.name}}</h3>
     </div>
   </div>
   <div class="row">
@@ -17,23 +17,25 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
+            <th scope="col">Student ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Semester</th>
+            <th scope="col">CGPA</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">{{this.first_name}}</th>
-            <td>{{this.last_name}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.phone}}</td>
+            <th scope="row">{{this.id}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.batch}}</td>
+            <td>{{this.semester}}</td>
+            <td>{{this.cgpa}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="row">
+    {{!-- <div class="row">
       <div class="col">
         <b>Comments</b>
       </div>
@@ -42,7 +44,7 @@
       <div class="col">
         {{this.comments}}
       </div>
-    </div>
+    </div> --}}
   </div>
   {{/each}}
 </div>
