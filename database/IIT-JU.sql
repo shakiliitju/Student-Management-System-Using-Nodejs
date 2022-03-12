@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 04, 2022 at 10:09 AM
+-- Generation Time: Mar 12, 2022 at 06:22 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -30,26 +30,26 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `phone` varchar(45) NOT NULL,
-  `comments` text NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `batch` varchar(45) NOT NULL,
+  `semester` varchar(45) NOT NULL,
+  `cgpa` varchar(45) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `phone`, `comments`, `status`) VALUES
-(2, 'Mahbubur', 'Rahman', 'mahbub@gmail.com', '012345 678910', '', 'active'),
-(3, 'Nahidul', 'Islam', 'nahidrabby2001@gmail.com', '012345 678910', '', 'active'),
-(4, 'Kamaru', 'Usman', 'kusman@ufc.com', '012345 678910', '', 'active'),
-(19, 'Md.', 'Shakil Hossain ', 'shakiljusc15@gmail.com', '01796963444', '', 'active');
+INSERT INTO `user` (`id`, `name`, `batch`, `semester`, `cgpa`, `status`) VALUES
+(2013, 'Md. Shakil Ahmed', '48', '1th', '3.75', 'active'),
+(2020, 'Md. Shariful Islam', '48', '1th', '3.53', 'active'),
+(2023, ' Md. Shakil Hossain', '48', '1th', '3.00', 'active'),
+(2024, 'Mahbub', '48', '1th', '3.22', 'active'),
+(2028, 'Nahidul Islam', '48', '1th', '3.68', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
