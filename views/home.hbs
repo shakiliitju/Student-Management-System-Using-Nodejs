@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-6">
-    <h1>Student</h1>
+    <h1>Students</h1>
   </div>
   <div class="col-6 d-flex justify-content-end">
     <a href="/adduser" type="button" class="btn btn-primary align-self-center">Add Student</a>
@@ -18,10 +18,10 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Student ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">Name</th>
+      <th scope="col">Batch</th>
+      <th scope="col">Semester</th>
+      <th scope="col">CGPA</th>
       <th scope="col" class="text-end">Action</th>
     </tr>
   </thead>
@@ -30,10 +30,10 @@
     {{#each rows}}
     <tr>
       <th scope="row">{{this.id}}</th>
-      <td>{{this.first_name}}</td>
-      <td>{{this.last_name}}</td>
-      <td>{{this.email}}</td>
-      <td>{{this.phone}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.batch}}</td>
+      <td>{{this.semester}}</td>
+      <td>{{this.cgpa}}</td>
       <td class="text-end">
         <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
         <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>

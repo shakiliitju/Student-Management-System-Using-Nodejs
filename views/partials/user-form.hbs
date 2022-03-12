@@ -1,33 +1,39 @@
   <div class="col-6">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInput" value="{{this.first_name}}" placeholder="First Name" name="first_name">
-      <label for="floatingInput">First Name</label>
+      <input type="text" class="form-control" id="floatingInput" value="{{this.id}}" placeholder="Student_ID" name="id">
+      <label for="floatingInput">Student_ID</label>
     </div>
   </div>
   <div class="col-6">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInput" value="{{this.last_name}}" placeholder="Last Name" name="last_name">
-      <label for="floatingInput">Last Name</label>
+      <input type="text" class="form-control" id="floatingInput" value="{{this.name}}" placeholder="Name" name="name">
+      <label for="floatingInput">Name</label>
     </div>
   </div>
   <div class="col-6">
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" value="{{this.email}}" placeholder="email@email.com" name="email">
-      <label for="floatingInput">Email</label>
+      <input type="text" class="form-control" id="floatingInput" value="{{this.batch}}" placeholder="number" name="batch">
+      <label for="floatingInput">Batch</label>
     </div>
   </div>
   <div class="col-6">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInput" value="{{this.phone}}" placeholder="Phone" name="phone">
-      <label for="floatingInput">Phone</label>
+      <input type="text" class="form-control" id="floatingInput" value="{{this.semester}}" placeholder="text" name="semester">
+      <label for="floatingInput">Semester</label>
     </div>
   </div>
-  <div class="col-12">
+   <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" value="{{this.cgpa}}" placeholder="text" name="cgpa">
+      <label for="floatingInput">CGPA</label>
+    </div>
+  </div>
+  {{!-- <div class="col-12">
     <div class="form-floating mb-3">
       <textarea class="form-control" placeholder="Leave a comment here" id="comments" name="comments" style="height: 200px">{{this.comments}}</textarea>
       <label for="comments">Comments</label>
     </div>
-  </div>
+  </div> --}}
   <div class="col-12 d-grid">
     <button class="btn btn-primary" type="submit">Submit</button>
   </div>

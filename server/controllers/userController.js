@@ -27,7 +27,7 @@ exports.view = (req, res) => {
 exports.find = (req, res) => {
   let searchTerm = req.body.search;
   // User the connection
-  connection.query('SELECT * FROM user WHERE first_name LIKE ? OR last_name LIKE ?', ['%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
+  connection.query('SELECT * FROM user WHERE id LIKE ? OR name LIKE ?', ['%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
     if (!err) {
       res.render('home', { rows });
     } else {
@@ -43,13 +43,13 @@ exports.form = (req, res) => {
 
 // Add new user
 exports.create = (req, res) => {
-  const { first_name, last_name, email, phone, comments } = req.body;
+  const { id, name, batch, semester, cgpa } = req.body;
   let searchTerm = req.body.search;
 
   // User the connection
-  connection.query('INSERT INTO user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ?', [first_name, last_name, email, phone, comments], (err, rows) => {
+  connection.query('INSERT INTO user SET id = ?, name = ?, batch = ?, semester = ?, cgpa = ?', [id, name, batch, semester, cgpa], (err, rows) => {
     if (!err) {
-      res.render('add-user', { alert: 'User added successfully.' });
+      res.render('add-user', { alert: 'Student added successfully.' });
     } else {
       console.log(err);
     }
@@ -74,9 +74,9 @@ exports.edit = (req, res) => {
 
 // Update User
 exports.update = (req, res) => {
-  const { first_name, last_name, email, phone, comments } = req.body;
+  const { id, name, batch, semester, cgpa } = req.body;
   // User the connection
-  connection.query('UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ? WHERE id = ?', [first_name, last_name, email, phone, comments, req.params.id], (err, rows) => {
+  connection.query('UPDATE user SET id = ?, name = ?, batch = ?, semester = ?, cgpa = ? WHERE id = ?', [ id, name, batch, semester, cgpa, req.params.id], (err, rows) => {
 
     if (!err) {
       // User the connection
@@ -84,7 +84,7 @@ exports.update = (req, res) => {
         // When done with the connection, release it
         
         if (!err) {
-          res.render('edit-user', { rows, alert: `${first_name} has been updated.` });
+          res.render('edit-user', { rows, alert: `${name} has been updated.` });
         } else {
           console.log(err);
         }
@@ -118,7 +118,7 @@ exports.delete = (req, res) => {
 
   connection.query('UPDATE user SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
     if (!err) {
-      let removedUser = encodeURIComponent('User successeflly removed.');
+      let removedUser = encodeURIComponent('Student successeflly removed.');
       res.redirect('/?removed=' + removedUser);
     } else {
       console.log(err);
