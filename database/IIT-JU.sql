@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 12, 2022 at 06:22 AM
+-- Generation Time: Mar 19, 2022 at 06:43 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -35,9 +35,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `batch` varchar(45) NOT NULL,
   `semester` varchar(45) NOT NULL,
   `cgpa` varchar(45) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'active',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
+  `status` varchar(10) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,11 +43,22 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `batch`, `semester`, `cgpa`, `status`) VALUES
-(2013, 'Md. Shakil Ahmed', '48', '1th', '3.75', 'active'),
+(2013, 'Md. Shakil Ahmed', '48', '1th', '3.76', 'active'),
 (2020, 'Md. Shariful Islam', '48', '1th', '3.53', 'active'),
-(2023, ' Md. Shakil Hossain', '48', '1th', '3.00', 'active'),
-(2024, 'Mahbub', '48', '1th', '3.22', 'active'),
-(2028, 'Nahidul Islam', '48', '1th', '3.68', 'active');
+(2023, ' Md. Shakil Hossain', '48', '1th', '3.20', 'active'),
+(2024, 'Mahbubur Rahman', '48', '1th', '3.22', 'active'),
+(2028, 'Nahidul Islam', '48', '1th', '3.68', 'active'),
+(2023, 'Md. Shakil Hossain', '48', '2nd', '3.18', 'active'),
+(2023, 'Md. Shakil Hossain', '48', '3th', '3.38', 'active'),
+(2013, 'Md. Shakil Ahmed', '48', '1th', '3.76', 'active'),
+(2013, 'Md. Shakil Ahmed', '48', '1th', '3.76', 'active'),
+(2020, 'Md. Shariful Islam', '48', '2nd', '3.53', 'active'),
+(2020, 'Md. Shariful Islam', '48', '3th', '3.53', 'active'),
+(2020, 'Md. Shariful Islam', '48', '4th', '3.80', 'active'),
+(2028, 'Nahidul Islam', '48', '2nd', '3.68', 'active'),
+(2028, 'Nahidul Islam', '48', '3th', '3.37', 'active'),
+(2024, 'Mahbubur Rahman', '48', '2nd', '3.48', 'active'),
+(2024, 'Mahbubur Rahman', '48', '3th', '3.36', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
