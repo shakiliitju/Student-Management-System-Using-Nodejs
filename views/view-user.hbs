@@ -6,6 +6,7 @@
 </nav>
 
 <div class="view-user p-5">
+  {{#each rows}}
   <div class="row mb-5">
     <div class="col text-center">
       <h3>{{this.name}}</h3>
@@ -19,24 +20,23 @@
             <th scope="col">Student ID</th>
             <th scope="col">Name</th>
             <th scope="col">Batch</th>
-            <th scope="col">Semester</th>
-            <th scope="col">CGPA</th>
+            <th scope="col">Gender</th>
+            <th scope="col">email</th>
           </tr>
         </thead>
-      
+
         <tbody>
-          {{#each rows}}
           <tr>
             <th scope="row">{{this.id}}</th>
             <td>{{this.name}}</td>
             <td>{{this.batch}}</td>
-            <td>{{this.semester}}</td>
-            <td>{{this.cgpa}}</td>
+            <td>{{this.gender}}</td>
+            <td>{{this.email}}</td>
           </tr>
-          {{/each}}
         </tbody>
       </table>
     </div>
   </div>
+  {{/each}}
 
 </div>
