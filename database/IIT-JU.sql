@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2022 at 06:18 AM
+-- Generation Time: Mar 27, 2022 at 03:05 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -25,36 +25,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `result`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `result`;
+CREATE TABLE IF NOT EXISTS `result` (
+  `id` int(11) NOT NULL,
+  `semester` varchar(225) NOT NULL,
+  `cgpa` varchar(225) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`id`, `semester`, `cgpa`) VALUES
+(2023, '2nd', '3.18'),
+(2013, '2nd', '3.86'),
+(2024, '2nd', '3.80'),
+(2023, '3th', '3.80');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `batch` varchar(45) NOT NULL,
-  `semester` varchar(45) NOT NULL,
-  `cgpa` varchar(45) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'active'
+  `gender` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `student`
 --
 
-INSERT INTO `user` (`id`, `name`, `batch`, `semester`, `cgpa`, `status`) VALUES
-(2023, ' Md. Shakil Hossain', '48', '1th', '3.20', 'active'),
-(2024, 'Mahbubur Rahman', '48', '1th', '3.22', 'active'),
-(2028, 'Nahidul Islam', '48', '1th', '3.68', 'active'),
-(2023, 'Md. Shakil Hossain', '48', '2nd', '3.18', 'active'),
-(2023, 'Md. Shakil Hossain', '48', '3th', '3.38', 'active'),
-(2028, 'Nahidul Islam', '48', '2nd', '3.68', 'active'),
-(2028, 'Nahidul Islam', '48', '3th', '3.37', 'active'),
-(2024, 'Mahbubur Rahman', '48', '2nd', '3.48', 'active'),
-(2024, 'Mahbubur Rahman', '48', '3th', '3.36', 'active'),
-(2013, 'Md. Shakil Ahmed', '48', '1th', '3.76', 'active'),
-(2013, 'Md. Shakil Ahmed', '48', '2nd', '3.80', 'active'),
-(2013, 'Md. Shakil Ahmed', '48', '3th', '3.68', 'active');
+INSERT INTO `student` (`id`, `name`, `batch`, `gender`, `email`, `status`) VALUES
+(2023, 'Md. Shakil Hossain', '48', 'Male', 'shakiljusc15@gmail.com', 'active'),
+(2024, 'Mahbubur Rahman', '48', 'Male', 'mahbub@gmail.com', 'active'),
+(2028, 'Nahidul Islam', '48', 'Male', 'nahidrabby2001@gmail.com', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
