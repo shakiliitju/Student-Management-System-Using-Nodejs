@@ -27,7 +27,7 @@ exports.view = (req, res) => {
 // View result
 exports.views = (req, res) => {
   
-  connection.query('SELECT * FROM result', (err, rows) => {
+  connection.query('SELECT DISTINCT id  FROM result ORDER BY id LIMIT 5', (err, rows) => {
     
     if (!err) {
       let removedUser = req.query.removed;
@@ -44,13 +44,26 @@ exports.views = (req, res) => {
 exports.find = (req, res) => {
   let searchTerm = req.body.search;
   
-  connection.query('SELECT * FROM student WHERE id LIKE ? OR name LIKE ? OR gender LIKE ?', ['%' + searchTerm + '%', '%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
+  connection.query('SELECT * FROM student WHERE id LIKE ? OR name LIKE ? OR gender LIKE ? OR department LIKE ?', ['%' + searchTerm + '%', '%' + searchTerm + '%',  '%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
     if (!err) {
       res.render('home', { rows });
     } else {
       console.log(err);
     }
     console.log('The data from student table: \n', rows);
+  });
+}
+
+exports.finds = (req, res) => {
+  let searchTerm = req.body.sr;
+  
+  connection.query('SELECT * FROM result WHERE id LIKE ?', ['%' + searchTerm + '%'  ], (err, rows) => {
+    if (!err) {
+      res.render('result', { rows });
+    } else {
+      console.log(err);
+    }
+    console.log('The data from result table: \n', rows);
   });
 }
 
