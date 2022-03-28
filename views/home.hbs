@@ -21,6 +21,8 @@
       <th scope="col">Name</th>
       <th scope="col">Batch</th>
       <th scope="col">Gender</th>
+      <th scope="col">Department</th>
+      <th scope="col">Phone</th>
       <th scope="col">Email</th>
       <th scope="col" class="text-end">Action</th>
     </tr>
@@ -33,10 +35,13 @@
       <td>{{this.name}}</td>
       <td>{{this.batch}}</td>
       <td>{{this.gender}}</td>
+      <td>{{this.department}}</td>
+      <td>{{this.phone}}</td>
       <td>{{this.email}}</td>
       <td class="text-end">
         <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
-        <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
+        <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i
+            class="bi bi-pencil"></i>Edit</a>
         <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
       </td>
     </tr>
