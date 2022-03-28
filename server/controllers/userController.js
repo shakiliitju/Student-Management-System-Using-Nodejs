@@ -27,7 +27,7 @@ exports.view = (req, res) => {
 // View result
 exports.views = (req, res) => {
   
-  connection.query('SELECT * FROM result LIMIT 5', (err, rows) => {
+  connection.query('SELECT * FROM result', (err, rows) => {
     
     if (!err) {
       let removedUser = req.query.removed;
