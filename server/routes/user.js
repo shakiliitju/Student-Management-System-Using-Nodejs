@@ -6,6 +6,8 @@ const userController = require('../controllers/userController');
 
 router.get('/', userController.view);
 router.post('/', userController.find);
+router.post('/result', userController.finds);
+
 router.get('/result', userController.views);
 router.get('/adduser', userController.form);
 router.post('/adduser', userController.create);
