@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2022 at 03:05 PM
+-- Generation Time: Mar 28, 2022 at 11:52 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -43,7 +43,14 @@ INSERT INTO `result` (`id`, `semester`, `cgpa`) VALUES
 (2023, '2nd', '3.18'),
 (2013, '2nd', '3.86'),
 (2024, '2nd', '3.80'),
-(2023, '3th', '3.80');
+(2023, '3th', '3.80'),
+(2023, '4th', '3.18'),
+(2013, '1th', '3.76'),
+(2023, '1th', '3.53'),
+(2013, '3th', '3.80'),
+(1964, '1th', '3.80'),
+(1964, '2nd', '3.96'),
+(1964, '3th', '3.80');
 
 -- --------------------------------------------------------
 
@@ -57,6 +64,8 @@ CREATE TABLE IF NOT EXISTS `student` (
   `name` varchar(45) NOT NULL,
   `batch` varchar(45) NOT NULL,
   `gender` varchar(45) NOT NULL,
+  `department` varchar(225) NOT NULL,
+  `phone` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
@@ -66,10 +75,16 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `name`, `batch`, `gender`, `email`, `status`) VALUES
-(2023, 'Md. Shakil Hossain', '48', 'Male', 'shakiljusc15@gmail.com', 'active'),
-(2024, 'Mahbubur Rahman', '48', 'Male', 'mahbub@gmail.com', 'active'),
-(2028, 'Nahidul Islam', '48', 'Male', 'nahidrabby2001@gmail.com', 'active');
+INSERT INTO `student` (`id`, `name`, `batch`, `gender`, `department`, `phone`, `email`, `status`) VALUES
+(1964, 'Zarin Sabah Teresa', '48', 'Female', 'IIT', '01728947556', 'zarin@gmail.com', 'active'),
+(1976, 'Sabrina Siddiki Adity', '48', 'Female', 'IIT', '0937140978', 'admin@gmail.com', 'active'),
+(1986, 'Mst.sumiya siddika', '47', 'Female', 'CSE', '018746132645', 'admin@gmail.com', 'active'),
+(2013, 'Md. Shakil Ahmed', '48', 'Male', 'IIT', '01728947556', 'shakiljusc15@gmail.com', 'active'),
+(2023, 'Md. Shakil Hossain', '48', 'Male', 'IIT', '01796963444', 'hossain.stu2018@juniv.edu', 'active'),
+(2024, 'Mahbubur Rahman', '48', 'Male', 'IIT', '01796963444', 'mahbub@gmail.com', 'active'),
+(2028, 'Nahidul Islam', '48', 'Male', 'IIT', '01728947556', 'nahidrabby2001@gmail.com', 'active'),
+(2029, 'A.H.M Sakif Shale', '47', 'Male', 'CSE', '01134735432', 'admin@gmail.com', 'active'),
+(2033, 'Md. Rashedul Islam', '47', 'Male', 'CSE', '02492576524', 'admin@gmail.com', 'active');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
