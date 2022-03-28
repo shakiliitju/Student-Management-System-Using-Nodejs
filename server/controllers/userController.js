@@ -60,11 +60,11 @@ exports.form = (req, res) => {
 
 // Add new user
 exports.create = (req, res) => {
-  const { id, name, batch, gender, email } = req.body;
+  const { id, name, batch, gender, department, phone, email } = req.body;
   let searchTerm = req.body.search;
 
 
-  connection.query('INSERT INTO student SET id = ?, name = ?, batch = ?, gender = ?, email = ?', [id, name, batch, gender, email], (err, rows) => {
+  connection.query('INSERT INTO student SET id = ?, name = ?, batch = ?, gender = ?, department = ?, phone = ?, email = ?', [id, name, batch, gender, department, phone, email], (err, rows) => {
     if (!err) {
       res.render('add-user', { alert: 'Student added successfully.' });
     } else {
@@ -117,9 +117,9 @@ exports.edit = (req, res) => {
 
 // Update User
 exports.update = (req, res) => {
-  const { id, name, batch, gender, email } = req.body;
+  const { id, name, batch, gender, department, phone, email } = req.body;
 
-  connection.query('UPDATE student SET id = ?, name = ?, batch = ?, gender = ?, email = ? WHERE id = ?', [ id, name, batch, gender, email, req.params.id], (err, rows) => {
+  connection.query('UPDATE student SET id = ?, name = ?, batch = ?, gender = ?, department = ?, phone = ?, email = ? WHERE id = ?', [ id, name, batch, gender, department, phone, email, req.params.id], (err, rows) => {
     if (!err) {
       connection.query('SELECT * FROM student WHERE id = ?', [req.params.id], (err, rows) => { 
         if (!err) {
@@ -139,26 +139,26 @@ exports.update = (req, res) => {
 // Delete User
 exports.delete = (req, res) => {
 
-//   // connection.query('DELETE FROM student WHERE id = ?', [req.params.id], (err, rows) => {
-//   //   if(!err) {
-//   //     res.redirect('/');
-//   //   } else {
-//   //     console.log(err);
-//   //   }
-//   //   console.log('The data from student table: \n', rows);
-//   // });
-
-  // Hide a record
-
-  connection.query('UPDATE student SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
-    if (!err) {
-      let removedUser = encodeURIComponent('Student successeflly removed.');
-      res.redirect('/?removed=' + removedUser);
+  connection.query('DELETE FROM student WHERE id = ?', [req.params.id], (err, rows) => {
+    if(!err) {
+      res.redirect('/');
     } else {
       console.log(err);
     }
-    console.log('The data from student table are: \n', rows);
+    console.log('The data from student table: \n', rows);
   });
+
+  // Hide a record
+
+  // connection.query('UPDATE student SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
+  //   if (!err) {
+  //     let removedUser = encodeURIComponent('Student successeflly removed.');
+  //     res.redirect('/?removed=' + removedUser);
+  //   } else {
+  //     console.log(err);
+  //   }
+  //   console.log('The data from student table are: \n', rows);
+  // });
 }
 
 // View Users
@@ -176,8 +176,9 @@ exports.viewall = (req, res) => {
 
 // View Results by id
 exports.viewalls = (req, res) => {
-  connection.query('SELECT * FROM student INNER JOIN result ON student.id = result.id WHERE student.id = ?', [req.params.id], (err, rows) => {
-  // connection.query('SELECT * FROM result WHERE id = ?', [req.params.id], (err, rows) => {
+  // connection.query('SELECT * FROM student INNER JOIN result ON student.id = result.id WHERE student.id = ?', [req.params.id], (err, rows) => {
+     connection.query('SELECT * FROM student NATURAL JOIN result WHERE id = ? ORDER BY semester', [req.params.id], (err, rows) => {
+
     if (!err) {
       res.render('view-result', { rows });
     } else {
