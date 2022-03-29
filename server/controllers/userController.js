@@ -45,7 +45,11 @@ exports.find = (req, res) => {
   let searchTerm = req.body.search;
   
   connection.query('SELECT * FROM student WHERE id LIKE ? OR name LIKE ? OR gender LIKE ? OR department LIKE ?', ['%' + searchTerm + '%', '%' + searchTerm + '%',  '%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
-    if (!err) {
+    if(rows ==0 ){
+      res.render('home', { alert: 'Student Not found.' });
+
+    }
+   else  if (!err) {
       res.render('home', { rows });
     } else {
       console.log(err);
@@ -58,7 +62,10 @@ exports.finds = (req, res) => {
   let searchTerm = req.body.sr;
   
   connection.query('SELECT DISTINCT id FROM result WHERE id LIKE ?', ['%' + searchTerm + '%'  ], (err, rows) => {
-    if (!err) {
+    if(rows ==0 ){
+      res.render('result', { alert: 'Result Not found.' });
+    }
+    else if (!err) {
       res.render('result', { rows });
     } else {
       console.log(err);
