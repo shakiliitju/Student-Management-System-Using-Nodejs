@@ -5,6 +5,13 @@
 </div>
 {{/if}}
 
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
 <div class="row">
   <div class="col-6">
     <h1>Students</h1>
