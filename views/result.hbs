@@ -12,12 +12,10 @@
   <div class="col-6 d-flex justify-content-end">
     <a href="/addresult" type="button" class="btn btn-primary align-self-center">Add Result</a>
   </div>
-    <form class="d-flex" method="POST" action="/result" novalidate>
-          <input class="form-control me-2" type="search" placeholder="Search" name="sr" aria-label="Search" style="width:20%">
-          <button type="submit">Search</button>
-          
-        </form>
-
+  <form class="d-flex" method="POST" action="/result" novalidate>
+    <input class="form-control me-2" type="search" placeholder="Search" name="sr" aria-label="Search" style="width:20%">
+    <button type="submit">Search</button>
+  </form>
 </div>
 <br>
 <table class="table table-bordered">
@@ -37,7 +35,8 @@
       {{!-- <td>{{this.semester}}</td>
       <td>{{this.cgpa}}</td> --}}
       <td class="text-end">
-        <a href="/viewresult/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+        <a href="/viewresult/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>
+          View</a>
       </td>
     </tr>
     {{/each}}

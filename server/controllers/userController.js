@@ -57,7 +57,7 @@ exports.find = (req, res) => {
 exports.finds = (req, res) => {
   let searchTerm = req.body.sr;
   
-  connection.query('SELECT * FROM result WHERE id LIKE ?', ['%' + searchTerm + '%'  ], (err, rows) => {
+  connection.query('SELECT DISTINCT id FROM result WHERE id LIKE ?', ['%' + searchTerm + '%'  ], (err, rows) => {
     if (!err) {
       res.render('result', { rows });
     } else {
